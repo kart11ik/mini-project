@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<style>
+
+         .navbar {
+            padding: 80px;
+            background: mediumseagreen;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+        .navbar-brand:hover {
+            background-color: transparent;
+            color: #f2f2f2;
+        }
+        .container-fluid {
+
+        }
+</style>
+<body>
+<nav class="navbar">
+    <p class="navbar-brand mx-auto">
+        Welcome to GreenField
+    </p>
+    <br>
+    <div style="color: white;">
+        {% if request.user.is_authenticated %}
+        <small style="font-size: 16px;"><i>Hello {{user.username|title}}</i></small>
+        <br>
+        <a class="btn btn-outline-info" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <small style="font-size: 16px;"><i>Login Now and Browse Our Store</i></small>
+        <br>
+        <a class="btn btn-outline-info" href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</nav>
+<div class="container-fluid">
+    <img src="https://img.freepik.com/free-vector/gradient-football-field-background_52683-66312.jpg?w=1060&t=st=1679385202~exp=1679385802~hmac=1c0d838924780d33c8b968cb66ad380918e7fc3912526702ad89c5428218ffbf" width="100%">
+</div>
+</body>
+</html>
